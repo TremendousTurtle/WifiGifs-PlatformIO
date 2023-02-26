@@ -2,8 +2,8 @@
 #define animatedgif_config
 
 // control the maximum dimensions of gif decoding
-#define gif_width 32
-#define gif_height 16
+#define gif_width 64
+#define gif_height 64
 
 /* GifDecoder needs lzwMaxBits
  * The lzwMaxBits value of 12 supports all GIFs, but uses 16kB RAM
