@@ -125,7 +125,7 @@ Most general settings are configured in [main.cpp](src/main.cpp):
 
 ### Uploading GIFs
 ----
-Remember space and memory are very limited on the ESP32 so keep GIFs small and short!
+Remember space and memory are very limited on the ESP32 so keep GIFs small and short! SPIFFS (the filesystem where the GIFs are stored) can not handle long filenames so keep those short as well.
 1. Place the desired GIFs in the [data/gifs](data/gifs) folder.
    - The entire data folder will be transferred to the board each time you upload a filesystem image. All data that was already on the board will be overwritten each time. Make sure that everything you want on the board is in the data folder when building and uploading the filesystem image.
 1. Open the PlatformIO panel in VSCode and choose "Build Filesystem Image" under rorrosaurus-esp32-hub75-driver -> Platform
