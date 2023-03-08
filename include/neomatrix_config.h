@@ -65,7 +65,7 @@ bool init_done = 0;
     #define GPIOPINOUT ESP32_FORUM_PINOUT
     #pragma message "Compiling for SMARTMATRIX with NEOMATRIX API"
     //#include <MatrixHardware_Teensy3_ShieldV4.h>
-    #include <SmartLEDShieldV4.h>  // if you're using SmartLED Shield V4 hardware
+    //#include <SmartLEDShieldV4.h>  // if you're using SmartLED Shield V4 hardware
     #include <SmartMatrix3.h>
     //#include <SmartMatrix.h>
     #include <SmartMatrix_GFX.h>
@@ -83,7 +83,7 @@ bool init_done = 0;
 uint8_t matrix_brightness = 25;
 
 #ifdef ESP32
-#pragma message "Compiling for ESP32 with 16x32 8 scan panel"
+//#pragma message "Compiling for ESP32 with 32x64 16 scan panel"
 // const uint8_t kPanelType = SMARTMATRIX_HUB75_16ROW_MOD8SCAN;   // use SMARTMATRIX_HUB75_16ROW_MOD8SCAN for common 16x32 panels
 const uint8_t kPanelType = SMARTMATRIX_HUB75_32ROW_MOD16SCAN;
 const uint16_t MATRIX_TILE_WIDTH = 64; // width of EACH NEOPIXEL MATRIX (not total display)
@@ -117,8 +117,8 @@ const uint8_t kMatrixWidth = mw;
 const uint8_t kMatrixHeight = mh;
 const uint8_t kRefreshDepth = 24;       // known working: 24, 36, 48
 const uint8_t kDmaBufferRows = 2;       // known working: 2-4, use 2 to save memory, more to keep from dropping frames and automatically lowering refresh rate
-// const uint8_t kMatrixOptions = (SMARTMATRIX_OPTIONS_NONE);      // see http://docs.pixelmatix.com/SmartMatrix for options
-const uint8_t kMatrixOptions = (SMARTMATRIX_OPTIONS_C_SHAPE_STACKING);
+const uint8_t kMatrixOptions = (SMARTMATRIX_OPTIONS_NONE);      // see http://docs.pixelmatix.com/SmartMatrix for options
+//const uint8_t kMatrixOptions = (SMARTMATRIX_OPTIONS_C_SHAPE_STACKING);
 const uint8_t kBackgroundLayerOptions = (SM_BACKGROUND_OPTIONS_NONE);
 
 SMARTMATRIX_ALLOCATE_BUFFERS(matrixLayer, kMatrixWidth, kMatrixHeight, kRefreshDepth, kDmaBufferRows, kPanelType, kMatrixOptions);
