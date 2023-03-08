@@ -187,7 +187,7 @@ void loop() {
     static int index = FIRSTINDEX;
     currentIndex = index;
     static int8_t new_file = 1;
-    static unsigned long lastTime = millis();
+    //static unsigned long lastTime = millis();
     static uint16_t frame = 0;
     // allow stalling on a picture if requested
     static uint32_t longer = 0;
@@ -284,7 +284,7 @@ void loop() {
     if (new_file) { 
 	frame = 0;
 	new_file = 0;
-	lastTime = millis();
+	//lastTime = millis();
 	if (index >= num_files) index = 0;
 	if (index <= -1) index = num_files - 1;
         Serial.print("Fetching file index #");
