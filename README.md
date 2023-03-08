@@ -109,8 +109,8 @@ Most general settings are configured in [main.cpp](src/main.cpp):
 #define FIRSTINDEX 0 // 0 based index of GIF to play first
 ```
 
-## Code Operations
-----
+## PlatformIO Operations
+----------
  - Connect the ESP32 board to your computer via USB. Make sure it is recognized and the appropriate driver is used. Generally this should all happen automatically.
  - PlatformIO should automatically detect and choose the correct port. If not then you will need to identify and choose the correct COM port on your own.
  - Make sure that any serial monitors to your board are closed before attempting to upload any code or other data.
@@ -131,3 +131,21 @@ Remember space and memory are very limited on the ESP32 so keep GIFs small and s
 1. Open the PlatformIO panel in VSCode and choose "Build Filesystem Image" under rorrosaurus-esp32-hub75-driver -> Platform
 1. When complete choose "Upload Filesystem Image" under rorrosaurus-esp32-hub75-driver -> Platform
 1. The data should be available to the board and its software. Upload the program if you haven't already.
+
+### Serial Monitoring
+----
+Most features of the project print some sort of status or configuration information to the ESP32's serial console. These messages can be viewed by connecting to the board via PlatformIO's Serial Monitor. The serial console can also send messages to the software while running to enable additional debugging information, change settings, or any other functionality added to the software.
+1. Open VSCode/PlatformIO and navigate to the "Serial Monitor" panel next to the Terminal and Output panels near the bottom of the window.
+1. PlatformIO should already have selected the appropriate connection settings. Confirm that the selected port is the correct ESP32 board and then click "Start Monitoring".
+1. Many of the configuration items are printed as the program is first starting up. If you want to view these items, start the serial monitor and then press the "EN" button on the board to restart it. The serial monitor will remain connected and display all messages as they are generated.
+1. Remember that the serial monitor needs to be closed in order to upload any code or data to the board. If it is not closed you will get a permissions error when attempting to connect to the board.
+
+## Program Usage
+----------
+### Web Interface
+----
+The ESP32 will broadcast its own Wifi network ("myLEDPanel" by default) which you can connect to access the programs web interface. From here you can select the current GIF, adjust brightness, or any other setting which is available there.
+1. On another device find and connect to the Wifi network name you specified in the Wifi configuration. By default the network is named "myLEDPanel" and does not have a passphrase.
+   - The Wifi network the board creates does not have internet access so mobile devices may complain and automatically attempt to connect to a better network. Disable this behavior to prevent issues sending commands to the program.
+1. Open the web interface by entering the IP address of the device into a web browser. Normally the IP address should be 192.168.4.1
+1. Adjust any settings you'd like and watch the display change accordingly.
