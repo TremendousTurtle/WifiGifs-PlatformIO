@@ -140,6 +140,16 @@ Most features of the project print some sort of status or configuration informat
 1. Many of the configuration items are printed as the program is first starting up. If you want to view these items, start the serial monitor and then press the "EN" button on the board to restart it. The serial monitor will remain connected and display all messages as they are generated.
 1. Remember that the serial monitor needs to be closed in order to upload any code or data to the board. If it is not closed you will get a permissions error when attempting to connect to the board.
 
+You may enter the following commands to invoke debugging and/or control functions through the serial console:
+ - "n" -> Next GIF command
+ - "p" -> Previous GIF command
+ - "f" -> Enter debug frames mode
+ - "g" -> Next frame in debug frames mode
+ - "c" -> Toggle clearing of screen before each frame
+ - "+" -> Increase gamma value by 0.2
+ - "-" -> Decrease gamma value by 0.2
+ - "0" - "9" -> Display GIF with entered index
+
 ## Program Usage
 ----------
 ### Web Interface
