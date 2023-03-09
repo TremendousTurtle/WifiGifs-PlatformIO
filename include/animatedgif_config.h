@@ -12,32 +12,20 @@
  */
 const int lzwMaxBits = 11;
 
-//#define NEOMATRIX // Switch to NEOMATRIX backend from native SMARTMATRIX backend
-//#define NEOPIXEL_MATRIX  // If NEOMATRIX, use FastLED::NeoMatrix, not SmartMatrix_GFX
-
 // enable debug mode over serial?
-//#define DEBUGLINE 16
+// #define DEBUGLINE 16
 
-// If the matrix is a different size than the GIFs, set the offset for the upper left corner
-// (negative or positive is ok).
+// These are just declarations for moving and/or resizing the GIFs. Set the
+// values in main.cpp
 extern int OFFSETX;
 extern int OFFSETY;
 extern int FACTX;
 extern int FACTY;
 
-// Note, you can use an sdcard on ESP32 or ESP8266 if you really want,
-// but if your data fits in built in flash, why not use it?
-// Use built in flash via SPIFFS/FATFS
-// ESP32: https://github.com/me-no-dev/arduino-esp32fs-plugin
-// https://github.com/marcmerlin/esp32_fatfsimage/blob/master/README.md
-#if defined(ESP32)
-    #include <SPIFFS.h>
-    #define FSO SPIFFS
-    //#include "FFat.h"
-    //#define FSO FFat
-    //#define FSOFAT
-    // Do NOT add a trailing slash, or things will fail
-      #define GIF_DIRECTORY "/gifs"
-#endif
+// Use built in flash via SPIFFS
+#include <SPIFFS.h>
+#define FSO SPIFFS
+// Do NOT add a trailing slash, or things will fail
+#define GIF_DIRECTORY "/gifs"
 
 #endif
